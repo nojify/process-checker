@@ -9,7 +9,7 @@ echo "Process Start - $n"
 # ------------------------------------------
 # Check if a process for this script is already running
 
-ps -ef | grep "/bin/sh" | grep $n | grep -v $$
+ps -ef | grep "/bin/sh" | grep $n | grep -v $$ | grep -v "/bin/sh -c"
 if [ $? -eq 0 ]; then
   echo "Process already running"
   exit 0
@@ -17,5 +17,5 @@ fi
 
 # ------------------------------------------ 
 
-sleep 40
+sleep 65
 echo "Done"
